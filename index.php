@@ -59,12 +59,28 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         id="due_date"
                         name="due_date"
                         min="<?php echo date('Y-m-d'); ?>"
->   
+                    >   
                 </div>
 
                 <button type="submit" class="btn btn-primary">
                     + Thêm công việc
                 </button>
+                <!-- Nút sửa -->
+                <a href="edit.php?id=<?php echo $task['id']; ?>" class="btn btn-warning">
+                    Sửa
+                </a>
+
+                <!-- Form xóa -->
+                <form action="delete.php" method="POST"
+                    onsubmit="return confirm('Bạn có chắc muốn xóa không?');">
+
+                    <input type="hidden" name="id"
+                        value="<?php echo $task['id']; ?>">
+
+                    <button type="submit" class="btn btn-danger">
+                        Xóa
+                    </button>
+                </form>
             </form>
         </section>
 
@@ -157,6 +173,20 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         Xóa
                                     </button>
                                 </form>
+                                <form action="toggle.php" method="POST">
+                                <input
+                                    type="hidden"
+                                    name="id"
+                                    value="<?php echo (int) $task['id']; ?>"
+                                >
+
+                                <button type="submit" class="btn btn-success">
+                                    <?php echo $task['status'] == 1
+                                        ? 'Chưa xong'
+                                        : 'Hoàn thành'; 
+                                    ?>
+                                </button>
+                            </form>
 
                             </div>
 
