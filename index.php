@@ -173,18 +173,6 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         Xóa
                                     </button>
                                 </form>
-                                <form action="toggle.php" method="POST">
-                                <input
-                                    type="hidden"
-                                    name="id"
-                                    value="<?php echo (int) $task['id']; ?>"
-                                >
-
-                                <button type="submit" class="btn btn-success">
-                                    <?php echo $task['status'] == 1
-                                        ? 'Chưa xong'
-                                        : 'Hoàn thành'; 
-                                    ?>
                                 </button>
                             </form>
 
