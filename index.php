@@ -65,22 +65,6 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="submit" class="btn btn-primary">
                     + Thêm công việc
                 </button>
-                <!-- Nút sửa -->
-                <a href="edit.php?id=<?php echo $task['id']; ?>" class="btn btn-warning">
-                    Sửa
-                </a>
-
-                <!-- Form xóa -->
-                <form action="delete.php" method="POST"
-                    onsubmit="return confirm('Bạn có chắc muốn xóa không?');">
-
-                    <input type="hidden" name="id"
-                        value="<?php echo $task['id']; ?>">
-
-                    <button type="submit" class="btn btn-danger">
-                        Xóa
-                    </button>
-                </form>
             </form>
         </section>
 
